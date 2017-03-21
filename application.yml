@@ -27,6 +27,84 @@ spring:
 
 example3.property: "I AM THE value from application.yml"
 
+    stream:
+      kafka:
+        binder:
+          brokers:
+            #- 10.56.193.247
+            - localhost
+          zk-nodes:
+            #- 10.56.193.247
+            - localhost 
+      bindings:
+        locationIn:
+          destination: g2.location.data
+          group: g2-location
+          content-type: application/x-java-serialized-object;type=com.mce.gems.event.entity.TableGamesEvent
+          #content-type: application/json
+        locationOut:
+          destination: g2.location.data
+          content-type: application/x-java-serialized-object;type=com.mce.gems.event.entity.TableGamesEvent
+          #content-type: application/json
+        activityAuditIn:
+          destination: g2.activity.data
+          group: g2-audit
+          content-type: application/x-java-serialized-object;type=com.mce.gems.event.entity.TableGamesEvent
+          #content-type: application/json
+        activityAuditOut:
+          destination: g2.activity.data
+          content-type: application/x-java-serialized-object;type=com.mce.gems.event.entity.TableGamesEvent
+          #content-type: application/json
+        activitySessionIn:
+          destination: g2.activitySession.data
+          group: g2-audit
+          content-type: application/x-java-serialized-object;type=com.mce.gems.event.entity.TableGamesEvent
+          #content-type: application/json
+        activitySessionOut:
+          destination: g2.activitySession.data
+          content-type: application/x-java-serialized-object;type=com.mce.gems.event.entity.TableGamesEvent
+          #content-type: application/json
+        changeHistoryIn:
+          destination: g2.changehistory.data
+          group: g2-audit
+          content-type: application/x-java-serialized-object;type=com.mce.gems.event.entity.TableGamesEvent
+          #content-type: application/json
+        changeHistoryOut:
+          destination: g2.changehistory.data
+          content-type: application/x-java-serialized-object;type=com.mce.gems.event.entity.TableGamesEvent
+          #content-type: application/json
+        amountChangeIn:
+          destination: g2.amountchange.data
+          group: g2-audit
+          content-type: application/x-java-serialized-object;type=com.mce.gems.event.entity.TableGamesEvent
+          #content-type: application/json
+        amountChangeOut:
+          destination: g2.amountchange.data          
+          content-type: application/x-java-serialized-object;type=com.mce.gems.event.entity.TableGamesEvent
+          #content-type: application/json
+        inventoryIn:
+          destination: g2.inventory.data
+          group: g2-inventory
+          content-type: application/x-java-serialized-object;type=com.mce.gems.event.entity.TableGamesEvent
+          #content-type: application/json
+        inventoryOut:
+          destination: g2.inventory.data          
+          content-type: application/x-java-serialized-object;type=com.mce.gems.event.entity.TableGamesEvent
+          #content-type: application/json 
+        patronCountIn:
+          destination: g2.patroncount.data
+          group: g2-activity
+          content-type: application/x-java-serialized-object;type=com.mce.gems.event.entity.TableGamesEvent
+          #content-type: application/json
+        patronCountOut:
+          destination: g2.patroncount.data          
+          content-type: application/x-java-serialized-object;type=com.mce.gems.event.entity.TableGamesEvent
+          #content-type: application/json          
+  data:
+    mongodb:      
+      uri: mongodb://localhost:27017/g2dev
+      #uri: mongodb://10.56.224.160:27018/g2dmz
+
 ####
 #Classpath and file-based solution
 ####
