@@ -24,9 +24,6 @@ spring:
           searchPaths: licensingservice,organizationservice
           username: rickywck@gmail.com
           password: W52c39g@
-
-example3.property: "I AM THE value from application.yml"
-
     stream:
       kafka:
         binder:
